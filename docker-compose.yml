@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  app:
+    image: php:8.2-apache
+    container_name: slmp_app
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public
+
+  db:
+    image: mysql:8.0
+    container_name: slmp_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ''
+      MYSQL_DATABASE: slmp
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ''
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+    driver: local
+  app_data:
+    driver: local
+  logs:
+    driver: local
+  cache:
+    driver: local
+  temp:
+    driver: local
+  uploads:
+    driver: local
+  backups:
+    driver: local
+  sessions:
+    driver: local
+  config:
+    driver: local 
+  storage:
+    driver: local
+  public:
+    driver: local
+  vendor:
+    driver: local
+  node_modules:
+    driver: local
+  composer:
+    driver: local
+  artisan:
+    driver: local
+  migrations:
+    driver: local
+  tests:
+    driver: local
+  logs:
+    driver: local
+  database:
+    driver: local
+  cache:  
+    driver: local
+  temp:
+    driver: local
+  uploads:
+    driver: local
+  backups:
+    driver: local
