@@ -59,3 +59,36 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Authentication used
+
+This application uses email as the username for authentication. The default password for all users is `password`.
+
+## Bearer Token Authentication
+
+This application supports authentication using Bearer tokens. To access protected API endpoints, include an `Authorization` header in your HTTP requests:
+
+```
+Authorization: Bearer YOUR_TOKEN_HERE
+```
+
+Replace `YOUR_TOKEN_HERE` with your personal access token. Ensure you keep your token secure and do not share it publicly.
+
+## Seeders
+
+To extract all the data using seeders, run the following Artisan command:
+
+```bash
+php artisan db:seed
+```
+
+This command will execute all the seeders registered in the `DatabaseSeeder` class and populate your database with the sample data.
+
+If you want to run a specific seeder, use:
+
+```bash
+php artisan db:seed --class=YourSeederClassName
+```
+
+Make sure your database is configured correctly in the `.env` file before running the seeders.
